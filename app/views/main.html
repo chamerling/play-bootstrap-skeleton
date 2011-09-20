@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>#{get 'title' /}</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" media="screen" href="@{'/public/stylesheets/bootstrap-1.2.0.css'}">
+        #{get 'moreStyles' /}
+        <link rel="shortcut icon" type="image/png" href="@{'/public/images/favicon.png'}">
+        <script src="@{'/public/javascripts/jquery-1.5.2.min.js'}" type="text/javascript" charset="utf-8"></script>
+        <script src="@{'/public/javascripts/application.js'}" type="text/javascript" charset="utf-8"></script>
+        #{get 'moreScripts' /}
+    </head>
+    <body>
+    
+    <div class="topbar">
+      <div class="fill">
+        <div class="container">
+          <h3><a href="@{Application.index()}">App Name</a></h3>
+          <ul>
+            <!--- browse -->
+            <ul class="nav secondary-nav">
+              <li class="menu">
+                <a href="#" class="menu">Menu A</a>
+                <ul class="menu-dropdown">
+                  <li><a href="@{Application.index()}">One</a></li>
+                  <li><a href="@{Application.index()}">Two</a></li>
+                </ul>
+              </li>
+              <li class="menu">
+                <a href="#" class="menu">Menu B</a>
+                <ul class="menu-dropdown">
+                  <li><a href="@{Application.index()}">Three</a></li>
+                </ul>
+              </li>
+              <li class="menu">
+                <a href="#" class="menu">Menu C</a>
+                <ul class="menu-dropdown">
+                  <li><a href="@{Application.index()}">Four</a></li>
+                </ul>
+              </li>
+            </ul>
+          </ul>
+          <ul class="nav secondary-nav">
+          	<li><a href="">Connected to xxx</a></li>
+          </ul>
+        </div>
+      </div> <!-- /fill -->
+    </div>
+    
+  <div class="container">
+  
+  #{if flash.success}
+	<div class="alert-message success">
+        <a class="close" href="#">&times;</a>
+        <p><strong>${flash.success}</strong></p>
+      </div>
+  #{/if}
+  #{if flash.error}
+	<div class="alert-message error">
+        <a class="close" href="#">&times;</a>
+        <p><strong>${flash.error}</strong></p>
+      </div>
+  #{/if}
+
+     #{doLayout /}
+  </div>
+  </body>
+</html>
